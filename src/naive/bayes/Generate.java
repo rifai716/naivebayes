@@ -9,13 +9,9 @@ import org.json.simple.JSONObject;
 public class Generate {
     
     public static JSONArray dataLearning(ArrayList<ModelData1> data){
-        
         int totalData = data.size();
-        
         HashMap<String, Integer> mapResult = new HashMap<>();
-        
         JSONArray arrJSON = new JSONArray();
-        
         //Generate Result Probabilitas
         JSONObject objResult = new JSONObject();
         HashSet<String> unqResult = new HashSet<>();
@@ -54,7 +50,8 @@ public class Generate {
                 for(String r : unqAttribut){
                     int hitung = 0;
                     for(ModelData1 d : data){
-                        if(d.getData()[i].equalsIgnoreCase(r) && d.getResult().equalsIgnoreCase(s)){
+                        if(d.getData()[i].equalsIgnoreCase(r) && 
+                           d.getResult().equalsIgnoreCase(s)){
                             hitung++;
                         }
                     }
@@ -68,7 +65,6 @@ public class Generate {
             }
             arrJSON.add(oData);
         }
-                
         //System.out.println(arrJSON.get(2)); //test only
         return arrJSON;
     }
@@ -76,11 +72,9 @@ public class Generate {
     public static String test(String[] dataTest, JSONArray training){
         //hanya untuk tes
         //System.out.println("Hasil = "+testHelper(dataTest, training, 1, "no", 1, dataTest[1]));
-        
         String out = null;
         double yesResult = 1;
         double noResult = 1;
-        
         for(int i = 0; i < dataTest.length; i++){
             //System.out.println(testHelper(dataTest, training, 2, "yes", i, dataTest[i]));
             //System.out.println(testHelper(dataTest, training, 1, "no", i, dataTest[i]));
